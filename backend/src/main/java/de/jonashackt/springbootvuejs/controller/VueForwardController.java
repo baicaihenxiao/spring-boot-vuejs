@@ -14,8 +14,10 @@ public class VueForwardController {
     // Forwards all routes to FrontEnd except: '/', '/index.html', '/api', '/api/**'
     // Required because of 'mode: history' usage in frontend routing, see README for further details
     @RequestMapping(value = "{_:^(?!index\\.html|api).*$}")
+//    @RequestMapping({"/{path:[^\\.]*}", "/**/{path:^(?!index\\.html|api|actuator).*}/{path:[^\\.]*}"})
     public String redirectApi() {
         LOG.info("URL entered directly into the Browser, so we need to redirect...");
+        // https://stackoverflow.com/questions/28697681/spring-mvc-controller-what-is-the-difference-between-return-forward-return
         return "forward:/";
     }
 
