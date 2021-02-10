@@ -26,9 +26,6 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 //.anyRequest().authenticated() // protect all other requests
         .and()
             .csrf().disable(); // disable cross site request forgery, as we don't use cookies - otherwise ALL PUT, POST, DELETE will get HTTP 403!
-
-        // https://stackoverflow.com/questions/53395200/h2-console-is-not-showing-in-browser
-        http.headers().frameOptions().disable();
     }
 
     //@Override
